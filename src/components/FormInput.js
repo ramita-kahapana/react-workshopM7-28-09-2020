@@ -1,23 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 
-function FormInput() {
-  const [inputValue, setInputValue] = useState("");
-
+function FormInput({ value, setValue }) {
   const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+    setValue(event.target.value);
   };
-  const handleClearClick = () => setInputValue("");
+  const handleClearClick = () => setValue("");
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(inputValue);
+    console.log(value);
   };
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" value={inputValue} onChange={handleInputChange} />
+        <input type="text" value={value} onChange={handleInputChange} />
         <button type="submit">Summit</button>
       </form>
-      <div>{inputValue}</div>
+
       <button onClick={handleClearClick}>Clear</button>
     </div>
   );

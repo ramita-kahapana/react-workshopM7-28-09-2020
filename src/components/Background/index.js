@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+//  import "./main.css";
+import style from "./main.module.css";
 
 function Background(props) {
   const [backgroundColor, setbackgroundColor] = useState("#fff"); //first state
@@ -8,7 +10,12 @@ function Background(props) {
   return (
     // <React.Fragment>
     <>
-      <div onClick={handleClick} style={{ backgroundColor }}>
+      <div
+        className={style.container}
+        // className="background-container"
+        onClick={handleClick}
+        style={{ backgroundColor }}
+      >
         {props.children} {backgroundColor === "#fff" ? "white" : "red"}
       </div>
     </>
